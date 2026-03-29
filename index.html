@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>おおはしメモリアル2 ～燃えた、夏～</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game-container">
+  <!-- 背景レイヤー -->
+  <div id="bg-layer">
+    <img id="bg-image" src="" alt="">
+    <img id="bg-image-next" src="" alt="" class="hidden">
+  </div>
+
+  <!-- オーバーレイ（黒透過等） -->
+  <div id="overlay" class="hidden"></div>
+
+  <!-- キャラクターレイヤー -->
+  <div id="chara-layer">
+    <img id="chara-left" class="chara hidden" src="" alt="">
+    <img id="chara-center" class="chara hidden" src="" alt="">
+    <img id="chara-right" class="chara hidden" src="" alt="">
+  </div>
+
+  <!-- アイテムレイヤー（手紙、付箋、幕間タイトル等） -->
+  <div id="item-layer" class="hidden"></div>
+
+  <!-- ミニゲームレイヤー -->
+  <div id="minigame-layer" class="hidden"></div>
+
+  <!-- 好感度メーター -->
+  <div id="affinity-meter" class="hidden">
+    <div id="affinity-bar"></div>
+    <span id="affinity-score">0</span>
+  </div>
+
+  <!-- ムービーレイヤー -->
+  <div id="movie-layer" class="hidden">
+    <video id="movie-player" playsinline></video>
+  </div>
+
+  <!-- メッセージウィンドウ -->
+  <div id="message-window" class="hidden">
+    <div id="name-box"></div>
+    <div id="message-text"></div>
+    <div id="next-indicator">▼</div>
+  </div>
+
+  <!-- 選択肢レイヤー -->
+  <div id="choice-layer" class="hidden"></div>
+
+  <!-- テキスト入力レイヤー（パスワード入力用） -->
+  <div id="input-layer" class="hidden">
+    <div id="input-box">
+      <p id="input-prompt"></p>
+      <input type="text" id="input-field" autocomplete="off">
+      <button id="input-ok">OK</button>
+    </div>
+  </div>
+
+  <!-- ミニメニュー（ゲーム中常時表示） -->
+  <div id="mini-menu">
+    <button id="btn-menu" class="mini-btn">Menu</button>
+  </div>
+
+  <!-- フルメニュー -->
+  <div id="full-menu" class="hidden">
+    <div id="menu-panel">
+      <h2>Menu</h2>
+      <button class="menu-item" id="btn-save">Data Save</button>
+      <button class="menu-item" id="btn-load">Data Load</button>
+      <button class="menu-item" id="btn-hide">Hide Window</button>
+      <button class="menu-item" id="btn-skip">Message Skip</button>
+      <button class="menu-item" id="btn-title">Back to Title</button>
+      <button class="menu-item" id="btn-close-menu">Close</button>
+    </div>
+  </div>
+
+  <!-- セーブ/ロード画面 -->
+  <div id="saveload-screen" class="hidden">
+    <div id="saveload-panel">
+      <h2 id="saveload-title">Data Save</h2>
+      <div id="save-slots"></div>
+      <button id="btn-back-menu" class="menu-item">Back</button>
+    </div>
+  </div>
+
+  <!-- タイトル画面 -->
+  <div id="title-screen">
+    <div id="title-logo">
+      <h1>おおはしメモリアル2</h1>
+      <p class="subtitle">～燃えた、夏～</p>
+    </div>
+    <div id="title-buttons">
+      <button id="btn-newgame" class="title-btn">New Game</button>
+      <button id="btn-continue" class="title-btn">Continue</button>
+    </div>
+  </div>
+
+  <!-- クリックスタート画面 -->
+  <div id="start-screen">
+    <p>クリックしてスタート</p>
+  </div>
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/scenario.js"></script>
+<script src="js/minigame.js"></script>
+<script src="js/affinity.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
