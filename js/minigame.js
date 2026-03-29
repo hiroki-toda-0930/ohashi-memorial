@@ -78,15 +78,28 @@ window.startMinigame = function(engine, onCompleteLabel) {
   function addClickArea(x, y, w, h, label, onClick) {
     const area = document.createElement('div');
     area.className = 'mg-clickable';
-    area.style.cssText = `left:${x}%;top:${y}%;width:${w}%;height:${h}%;position:absolute;`;
+    area.style.cssText = `left:${x}%;top:${y}%;width:${w}%;height:${h}%;position:absolute;background:rgba(255,255,200,0.12);border:1.5px solid rgba(255,255,200,0.3);`;
 
     const labelEl = document.createElement('span');
-    labelEl.style.cssText = 'position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;background:rgba(0,0,0,0.6);padding:2px 8px;border-radius:3px;white-space:nowrap;opacity:0;transition:opacity 0.2s;';
+    labelEl.style.cssText = 'position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);color:#fff;font-size:12px;background:rgba(0,0,0,0.7);padding:3px 10px;border-radius:3px;white-space:nowrap;transition:opacity 0.2s;';
     labelEl.textContent = label;
     area.appendChild(labelEl);
 
-    area.addEventListener('mouseenter', () => { labelEl.style.opacity = '1'; });
-    area.addEventListener('mouseleave', () => { labelEl.style.opacity = '0'; });
+    // PC: ホバーで強調, スマホ: ラベル常時表示
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      labelEl.style.opacity = '1';
+    } else {
+      labelEl.style.opacity = '0';
+      area.addEventListener('mouseenter', () => {
+        labelEl.style.opacity = '1';
+        area.style.background = 'rgba(255,255,200,0.25)';
+      });
+      area.addEventListener('mouseleave', () => {
+        labelEl.style.opacity = '0';
+        area.style.background = 'rgba(255,255,200,0.12)';
+      });
+    }
     area.addEventListener('click', onClick);
     layer.appendChild(area);
   }

@@ -542,13 +542,12 @@ body {
 .mg-clickable {
   position: absolute;
   cursor: pointer;
-  border: 2px solid transparent;
   border-radius: 4px;
-  transition: border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.mg-clickable:hover {
-  border-color: rgba(255, 255, 150, 0.5);
+.mg-clickable:active {
+  background: rgba(255, 255, 200, 0.35) !important;
 }
 
 /* ===== Utility ===== */
