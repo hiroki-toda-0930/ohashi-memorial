@@ -209,7 +209,6 @@ window.startAffinity = function(engine) {
     { label: 'date_end', type: 'call', fn: (eng) => {
       eng.hideAffinity();
       eng.bgmAudio.pause();
-      eng.chara_hide_all;
       eng.charaLeft.classList.add('hidden');
       eng.charaRight.classList.add('hidden');
       eng.charaCenter.classList.add('hidden');
